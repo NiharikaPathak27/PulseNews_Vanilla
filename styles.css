@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-text-color: #111827;
+    --secondary-text-color: #6b7280;
+    --accent-color: #7c3aed;
+    --accent-color-dark: #5b21b6;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(to right, #eef2ff, #f8fafc);
+    color: var(--primary-text-color);
+}
+
+/* ---------------- UTIL ---------------- */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+/* ---------------- NAVBAR ---------------- */
+nav {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.main-nav {
+    justify-content: space-between;
+    padding: 14px 0;
+}
+
+/* ---------------- LOGO ---------------- */
+.company-logo {
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(124, 58, 237, 0.15);
+    color: #7c3aed;
+    font-size: 18px;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 700;
+
+    background: linear-gradient(45deg, #7c3aed, #5b21b6);
+
+    /* better compatibility */
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* float animation */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+}
+
+/* ---------------- NAV ITEMS ---------------- */
+.nav-links ul {
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-item {
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-item:hover {
+    background: #ede9fe;
+    color: var(--accent-color);
+}
+
+.nav-item.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* ---------------- SEARCH ---------------- */
+.search-bar {
+    gap: 10px;
+}
+
+.search-bar input {
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+}
+
+.search-bar button {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background: var(--accent-color-dark);
+}
+
+/* ---------------- MAIN ---------------- */
+main {
+    margin-top: 90px;
+    padding: 20px;
+}
+
+/* ---------------- CARDS ---------------- */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+
+    /* fade animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-header img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.news-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.news-source {
+    font-size: 12px;
+    color: var(--secondary-text-color);
+}
+
+.news-desc {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* ---------------- BOOKMARK ---------------- */
+.bookmark-btn {
+    margin-top: 10px;
+    padding: 6px 12px;
+    border: none;
+    background: #ede9fe;
+    color: var(--accent-color);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.bookmark-btn:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* ---------------- DARK MODE ---------------- */
+body.dark {
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+body.dark nav {
+    background: rgba(15, 23, 42, 0.8);
+}
+
+body.dark .card {
+    background: #1e293b;
+    color: white;
+}
+
+body.dark .news-source {
+    color: #cbd5e1;
+}
+
+body.dark .search-bar input {
+    background: #1e293b;
+    color: white;
+    border: 1px solid #334155;
+}
+
+/* ---------------- BACK TO TOP ---------------- */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    background: var(--accent-color);
+    color: white;
+    font-size: 18px;
+
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#backToTop:hover {
+    background: var(--accent-color-dark);
+    transform: translateY(-3px);
+}
+.no-results {
+    display: none;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 18px;
+    color: var(--secondary-text-color);
+}

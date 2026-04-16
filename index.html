@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PulseNews</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="main-nav container flex">
+
+        <a href="#" class="company-logo flex">
+            <div class="logo-box">⚡</div>
+            <span class="logo-text">PulseNews</span>
+        </a>
+
+        <div class="nav-links">
+            <ul class="flex">
+                <li class="nav-item" data-category="cricket">Cricket</li>
+                <li class="nav-item" data-category="india">India</li>
+                <li class="nav-item" data-category="technology">Technology</li>
+                <li class="nav-item" data-category="politics">Politics</li>
+            </ul>
+        </div>
+
+        <div class="search-bar flex">
+            <input type="text" id="search-text" placeholder="Search news...">
+            <button id="search-button">Search</button>
+            <button id="theme-toggle" class="theme-btn">🌙</button>
+        </div>
+
+    </div>
+</nav>
+
+<!-- MAIN -->
+<main>
+    <section id="cards-container" class="cards-container container"></section>
+    <div id="no-results" class="no-results">
+    No news found 😕
+</div>
+</main>
+
+<!-- TEMPLATE -->
+<template id="news-card-template">
+    <div class="card">
+        <div class="card-header">
+            <img class="news-img" src="" alt="news image">
+        </div>
+
+        <div class="card-content">
+            <h3 class="news-title"></h3>
+            <h6 class="news-source"></h6>
+            <p class="news-desc"></p>
+
+            <button class="bookmark-btn">⭐ Save</button>
+        </div>
+    </div>
+</template>
+
+<!-- BACK TO TOP BUTTON (CORRECT PLACE) -->
+<button id="backToTop">↑</button>
+
+</body>
+</html>
